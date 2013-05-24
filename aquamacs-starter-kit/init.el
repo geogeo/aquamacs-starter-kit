@@ -43,6 +43,7 @@
 (package-initialize)
 (require 'starter-kit-elpa)
 
+(setenv "PYMACS_PYTHON" "python2.7")
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -72,17 +73,19 @@
 (require 'starter-kit-ruby)
 (require 'starter-kit-js)
 (require 'starter-kit-dired)
-;; (require 'starter-kit-python)
+(require 'starter-kit-python)
 (require 'starter-kit-yasnippet)
-;; (require 'starter-kit-django)
-;; (require 'starter-kit-org)
+(require 'starter-kit-django)
+(require 'starter-kit-org)
 (require 'starter-kit-clojure)
 (require 'coffee-mode)
+(require 'copy-without-selection)
 
 (require 'web-mode)
 
 (add-to-list 'magic-mode-alist '("\\(?:<\\?xml\\s +[^>]*>\\)?\\s *<\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *<\\)*\\(?:!DOCTYPE\\s +[^>]*>\\s *<\\s *\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *\<\\)*\\)?[Hh][Tt][Mm][Ll]"
-       . web-mode))
+                                 . web-mode))
+(add-to-list 'magic-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'magic-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'magic-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'magic-mode-alist '("\\.as[cp]x\\'" . web-mode))
@@ -91,11 +94,11 @@
 (add-to-list 'magic-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-hook 'web-mode-hook 'auto-complete-mode)
 (require 'mustache-mode)
-; (require 'deft)
-; (setq deft-extension "org")
-; (setq deft-directory dropbox-everything-dir)
-; (setq deft-text-mode 'org-mode)
-; (global-set-key [f8] 'deft)
+;; (require 'deft)
+;; (setq deft-extension "org")
+;; (setq deft-directory dropbox-everything-dir)
+;; (setq deft-text-mode 'org-mode)
+;; (global-set-key [f8] 'deft)
 
 ;;; Autocomplete
 (require 'auto-complete-config)

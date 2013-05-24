@@ -20,7 +20,7 @@
 (add-to-list 'load-path kitfiles-dir)
 (require 'smart-compile)
 (require 'init)
-
+(setq py-load-pymacs-p 'nil)
 ;; (require 'markdown-mode)
 ;; (setq kitfiles-dir (concat (file-name-directory (or (buffer-file-name) load-file-name)) "/aquamacs-emacs-starter-kit"))
 
@@ -62,6 +62,6 @@ mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso1064
 ;; (global-set-key "\C-cew" 'evernote-write-note)
 ;; (global-set-key "\C-cep" 'evernote-post-region)
 ;; (global-set-key "\C-ceb" 'evernote-browser)
-(require 'rvm)
-(rvm-use-default)
+;; (require 'rvm)
+;; (rvm-use-default)
 (setenv "LANG" "en_US.UTF-8")

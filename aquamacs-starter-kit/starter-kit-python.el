@@ -10,33 +10,33 @@
               (getenv "PYTHONPATH") ":"
               (concat vendor-files-dir "/emacs-for-python")))
 
-     (setq pymacs-load-path
-           (list
-            (concat vendor-files-dir "/emacs-for-python/ropemacs")))
+     ;; (setq pymacs-load-path
+     ;;       (list
+     ;;        (concat vendor-files-dir "/emacs-for-python/ropemacs")))
 
-     ;; Pymacs
-     (autoload 'pymacs-apply "pymacs")
-     (autoload 'pymacs-call "pymacs")
-     (autoload 'pymacs-eval "pymacs" nil t)
-     (autoload 'pymacs-exec "pymacs" nil t)
-     (autoload 'pymacs-load "pymacs" nil t)
+     ;; ;; Pymacs
+     ;; (autoload 'pymacs-apply "pymacs")
+     ;; (autoload 'pymacs-call "pymacs")
+     ;; (autoload 'pymacs-eval "pymacs" nil t)
+     ;; (autoload 'pymacs-exec "pymacs" nil t)
+     ;; (autoload 'pymacs-load "pymacs" nil t)
 
-     (pymacs-load "ropemacs" "rope-")
+     ;; (pymacs-load "ropemacs" "rope-")
 
-     ;; Stops from erroring if there's a syntax err
-     (setq ropemacs-codeassist-maxfixes 3)
-     (setq ropemacs-guess-project t)
-     (setq ropemacs-enable-autoimport t)
+     ;; ;; Stops from erroring if there's a syntax err
+     ;; (setq ropemacs-codeassist-maxfixes 3)
+     ;; (setq ropemacs-guess-project t)
+     ;; (setq ropemacs-enable-autoimport t)
 
-     ;; Adding hook to automatically open a rope project if there is one
-     ;; in the current or in the upper level directory
-     (add-hook 'python-mode-hook
-               (lambda ()
-                 (cond ((file-exists-p ".ropeproject")
-                        (rope-open-project default-directory))
-                       ((file-exists-p "../.ropeproject")
-                        (rope-open-project (concat default-directory "..")))
-                       )))
+     ;; ;; Adding hook to automatically open a rope project if there is one
+     ;; ;; in the current or in the upper level directory
+     ;; (add-hook 'python-mode-hook
+     ;;           (lambda ()
+     ;;             (cond ((file-exists-p ".ropeproject")
+     ;;                    (rope-open-project default-directory))
+     ;;                   ((file-exists-p "../.ropeproject")
+     ;;                    (rope-open-project (concat default-directory "..")))
+     ;;                   )))
 
      ;; Flymake for python configuration (pyflakes required)
      (when (require 'flymake)

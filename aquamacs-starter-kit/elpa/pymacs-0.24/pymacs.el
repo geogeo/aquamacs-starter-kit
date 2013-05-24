@@ -617,7 +617,7 @@ The timer is used only if `post-gc-hook' is not available.")
                             pymacs-python-command
                           python))
                       "-c" (concat "import sys;"
-                                   " from Pymacs.pymacs import main;"
+                                   " from Pmacs.pymacs import main;"
                                    " main(*sys.argv[1:])")
                       (append
                        (and (>= emacs-major-version 24) '("-f"))

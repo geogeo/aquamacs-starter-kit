@@ -14,7 +14,7 @@
                                    'color-theme-solarized
                                    'yasnippet
                                    'gist
-                                   'pymacs)
+                                   )
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
