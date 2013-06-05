@@ -105,6 +105,7 @@
 (add-to-list 'ac-dictionary-directories (concat vendor-files-dir "/auto-complete-1.3.1/dict"))
 (ac-config-default)
 (require 'auto-highlight-symbol)
+(require 'auto-highlight-symbol-config)
 (regen-autoloads)
 (load custom-file 'noerror)
 
@@ -118,5 +119,6 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
     (mapc #'load (directory-files user-specific-dir nil ".*el$")))
-
+(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+ 
 (provide 'init)

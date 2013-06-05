@@ -39,26 +39,26 @@
      ;;                   )))
 
      ;; Flymake for python configuration (pyflakes required)
-     (when (require 'flymake)
-       (defun flymake-pyflakes-init ()
-         "Pyflakes flymake python file checking"
-         (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
-           (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                              'flymake-create-temp-inplace))
-                  (local-file (file-relative-name
-                               temp-file
-                               (file-name-directory buffer-file-name))))
-             (list "pyflakes" (list local-file)))))
+     ;; (when (require 'flymake)
+     ;;   (defun flymake-pyflakes-init ()
+     ;;     "Pyflakes flymake python file checking"
+     ;;     (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
+     ;;       (let* ((temp-file (flymake-init-create-temp-buffer-copy
+     ;;                          'flymake-create-temp-inplace))
+     ;;              (local-file (file-relative-name
+     ;;                           temp-file
+     ;;                           (file-name-directory buffer-file-name))))
+     ;;         (list "pyflakes" (list local-file)))))
        
 
-     ;; Show flymake errors without mouse
+     ;; ;; Show flymake errors without mouse
 
-       (load "flymake-point.el")
+     ;;   (load "flymake-point.el")
 
-       (add-to-list 'flymake-allowed-file-name-masks
-                    '("\\.py\\'" flymake-pyflakes-init))
-       (add-hook 'python-mode-hook 'flymake-find-file-hook)
-       )
+     ;;   (add-to-list 'flymake-allowed-file-name-masks
+     ;;                '("\\.py\\'" flymake-pyflakes-init))
+     ;;   (add-hook 'python-mode-hook 'flymake-find-file-hook)
+     ;;   )
 
      ;; Some defaults
      (setq-default indent-tabs-mode nil)

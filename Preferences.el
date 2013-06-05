@@ -19,6 +19,10 @@
 ;; set up our various directories to load
 (add-to-list 'load-path kitfiles-dir)
 (require 'smart-compile)
+
+; solve the org-called-interatively-p invalid error
+(defalias 'org-called-interactively-p 'called-interactively-p)
+
 (require 'init)
 (setq py-load-pymacs-p 'nil)
 ;; (require 'markdown-mode)
@@ -32,7 +36,17 @@
 (color-theme-molokai)
 
 (auto-fill-mode 0)
-
+; publish octopress blog
+(setq org-publish-project-alist
+   '(("blog" .  (:base-directory "~/Dropbox/octopress/source/_org_posts/"
+                 :base-extension "org"
+                 :publishing-directory "~/Dropbox/octopress/source/_posts/"
+                 :sub-superscript ""
+                 :recursive t
+                 :publishing-function org-html-publish-to-html
+                 :headline-levels 4
+                 :html-extension "markdown"
+                 :body-only t))))
 
 ;; Chinese Fonts
 (set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
@@ -51,9 +65,9 @@ mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso1064
 	   (format "tell application \"Firefox\" to open location \"%s\"" url)))
 	(setq browse-url-browser-function 'browse-url-firefox-on-mac)
 
-
 (require 'evernote-mode)
-(setq evernote-username "oyanglulu@gmail.com") ; optional: you can use this username as default.
+(setq evernote-developer-token "S=s23:U=260d98:E=146426dc0de:C=13eeabc94e2:P=1cd:A=en-devtoken:V=2:H=e29bd4467fa0665a1a76cecae807ecab")
+;; (setq evernote-username "oyanglulu@gmail.com") ; optional: you can use this username as default.
 (setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; optional
 ;; (global-set-key "\C-cec" 'evernote-create-note)
 ;; (global-set-key "\C-ceo" 'evernote-open-note)
@@ -64,4 +78,31 @@ mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso1064
 ;; (global-set-key "\C-ceb" 'evernote-browser)
 ;; (require 'rvm)
 ;; (rvm-use-default)
+
+;; (add-hook 'org-remember-before-finalize-hook 'evernote-this-org-note)
+
+(defun evernote-this-org-note(&optional arg)
+  "select note"
+  (interactive "P")
+  (beginning-of-buffer)
+  (re-search-forward "^\*.*")
+  (backward-word 1)
+  (beginning-of-line )
+  (copy-line)
+  (forward-line)
+  (evernote-post-region-4-org-mode (point) (point-max) "test")
+)
+
+(defun evernote-post-region-4-org-mode (begin end arg)
+  "Post the region as a note"
+  (interactive "r\np")
+  (enh-command-with-auth
+   (save-excursion
+     (save-restriction
+       (narrow-to-region begin end)
+       (if (and (enutil-neq arg nil) (enutil-neq arg 1))
+
+;           (pop-to-buffer (enh-base-create-note-common (buffer-name) t t t))
+         (enh-base-create-note-common (current-kill 0) nil nil  nil t))))))
+
 (setenv "LANG" "en_US.UTF-8")
