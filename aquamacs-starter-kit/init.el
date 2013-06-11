@@ -15,8 +15,10 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+(setq-default cursor-type 'box)
+(set-cursor-color "green")
+(blink-cursor-mode)
 ;; Load path etc.
-
 (setq dotfiles-dir (file-name-directory
 		    (or (buffer-file-name) load-file-name)))
 
@@ -80,7 +82,6 @@
 (require 'starter-kit-clojure)
 (require 'coffee-mode)
 (require 'copy-without-selection)
-
 (require 'web-mode)
 
 (add-to-list 'magic-mode-alist '("\\(?:<\\?xml\\s +[^>]*>\\)?\\s *<\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *<\\)*\\(?:!DOCTYPE\\s +[^>]*>\\s *<\\s *\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *\<\\)*\\)?[Hh][Tt][Mm][Ll]"
@@ -93,6 +94,7 @@
 (add-to-list 'magic-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'magic-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-hook 'web-mode-hook 'auto-complete-mode)
+
 (require 'mustache-mode)
 ;; (require 'deft)
 ;; (setq deft-extension "org")
