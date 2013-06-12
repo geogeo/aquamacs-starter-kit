@@ -5,9 +5,9 @@
 ;; (require 'org-install)
 (add-to-list 'org-modules 'org-timer)
 (setq org-timer-default-timer 25)
-(add-hook 'org-clock-in-hook '(lambda () 
-      (if (not org-timer-current-timer) 
-      (org-timer-set-timer '(16)))))
+;; (add-hook 'org-clock-in-hook '(lambda () 
+;;       (if (not org-timer-current-timer) 
+;;       (org-timer-set-timer '(16)))))
 ;; (setq org-confirm-babel-evaluate nil)
 
 ;;; Enable clojure and disable emacs-lisp
@@ -22,6 +22,19 @@
 (setq org-mobile-directory "~/Dropbox/orgmobile")
 ;; (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
+
+; publish octopress blog
+(setq org-publish-project-alist
+   '(("blog" .  (:base-directory "~/Dropbox/octopress/source/_org_posts/"
+                 :base-extension "org"
+                 :publishing-directory "~/Dropbox/octopress/source/_posts/"
+                 :sub-superscript ""
+                 :recursive t
+                 :publishing-function org-html-publish-to-html
+                 :headline-levels 4
+                 :html-extension "markdown"
+                 :body-only t))))
+
 
 (setq org-capture-templates
       (quote (("t" "todo" entry (file 'org-default-notes-file)

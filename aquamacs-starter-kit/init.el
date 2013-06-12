@@ -15,9 +15,10 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(setq-default cursor-type 'box)
-(set-cursor-color "green")
-(blink-cursor-mode)
+
+
+
+;; (setq-default cursor-type 'box)
 ;; Load path etc.
 (setq dotfiles-dir (file-name-directory
 		    (or (buffer-file-name) load-file-name)))

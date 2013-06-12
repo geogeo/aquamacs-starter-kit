@@ -23,30 +23,19 @@
 ; solve the org-called-interatively-p invalid error
 (defalias 'org-called-interactively-p 'called-interactively-p)
 
-(require 'init)
+;; (require 'init)
 (setq py-load-pymacs-p 'nil)
 ;; (require 'markdown-mode)
 ;; (setq kitfiles-dir (concat (file-name-directory (or (buffer-file-name) load-file-name)) "/aquamacs-emacs-starter-kit"))
 
 ;; set up our various directories to load 
 ;; (add-to-list 'load-path kitfiles-dir)
-;; (require 'init)
+(require 'init)
 (require 'color-theme)
 
 (color-theme-molokai)
 
 (auto-fill-mode 0)
-; publish octopress blog
-(setq org-publish-project-alist
-   '(("blog" .  (:base-directory "~/Dropbox/octopress/source/_org_posts/"
-                 :base-extension "org"
-                 :publishing-directory "~/Dropbox/octopress/source/_posts/"
-                 :sub-superscript ""
-                 :recursive t
-                 :publishing-function org-html-publish-to-html
-                 :headline-levels 4
-                 :html-extension "markdown"
-                 :body-only t))))
 
 ;; Chinese Fonts
 (set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
@@ -106,3 +95,4 @@ mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso1064
          (enh-base-create-note-common (current-kill 0) nil nil  nil t))))))
 
 (setenv "LANG" "en_US.UTF-8")
+(set-cursor-color "green")
