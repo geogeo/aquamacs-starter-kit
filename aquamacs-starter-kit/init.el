@@ -81,6 +81,7 @@
 (require 'starter-kit-django)
 (require 'starter-kit-org)
 (require 'starter-kit-clojure)
+(require 'starter-kit-evernote)
 (require 'coffee-mode)
 (require 'copy-without-selection)
 (require 'web-mode)
