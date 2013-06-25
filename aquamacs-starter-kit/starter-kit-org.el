@@ -3,8 +3,8 @@
 
 ;;; Disable the confirmation before each evaluation
 ;; (require 'org-install)
-(add-to-list 'org-modules 'org-timer)
-(setq org-timer-default-timer 25)
+;; (add-to-list 'org-modules 'org-timer)
+;; (setq org-timer-default-timer 25)
 ;; (add-hook 'org-clock-in-hook '(lambda () 
 ;;       (if (not org-timer-current-timer) 
 ;;       (org-timer-set-timer '(16)))))
@@ -18,7 +18,7 @@
 ;;    ))
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
-(setq org-mobile-inbox-for-pull "~/Dropbox/flagged.org")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/orgmobile")
 ;; (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
@@ -37,17 +37,20 @@
 
 
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file 'org-default-notes-file)
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+      (quote (("t" "Todo" entry (file+headline 'org-default-notes-file "Tasks")
+               "* TODO %* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
               ("r" "respond" entry (file 'org-default-notes-file)
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file 'org-default-notes-file)
-               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+               "* %?:NOTE:\n%i\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree "~/Dropbox/org/diary.org")
-               "* %?\n%U\n" :clock-in t :clock-resume t)
+               "* %?\n%i\n" :clock-in t :clock-resume t)
               ("w" "org-protocol" entry (file 'org-default-notes-file)
                "* TODO Review %c\n%U\n" :immediate-finish t)
+              
               )))
+(setq org-agenda-files (list  "~/Dropbox/org/refile.org"))
+(global-set-key "\C-ca" 'org-agenda)
 ;; ;; Remove empty LOGBOOK drawers on clock out
 ;; (defun bh/remove-empty-drawer-on-clock-out ()
 ;;   (interactive)
