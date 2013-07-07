@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# contributor: me
-# group: django
-# name : trans
-# key: trans
-# --
-{% trans "${1:item}" %}

@@ -174,7 +174,7 @@
 ; (server-start)
 
 (load-file (concat kitfiles-dir "/elpa" "/color-theme-solarized-20120301/color-theme-solarized.el"))
-(load-file (concat kitfiles-dir "/elpa-to-submit" "/molokai.el"))
+;; (load-file (concat kitfiles-dir "/elpa-to-submit" "/molokai.el"))
 
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here

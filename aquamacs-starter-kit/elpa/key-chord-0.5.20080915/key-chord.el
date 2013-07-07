@@ -69,12 +69,12 @@
 ;;
 ;; Examples:
 ;;
-;;      (key-chord-define-global ",."     "<>\C-b")
-;;      (key-chord-define-global "hj"     'undo)
+     ;; (key-chord-define-global ",."     "<>\C-b")
+     ;; (key-chord-define-global "hj"     'undo)
 ;;      (key-chord-define-global [?h ?j]  'undo)  ; the same
 ;;      (key-chord-define-global "jk"     'dabbrev-expand)
 ;;      (key-chord-define-global "cv"     'reindent-then-newline-and-indent)
-;;      (key-chord-define-global "4r"     "$")
+     ;; (key-chord-define-global "4r"     "$")
 ;;
 ;; Comma and dot pressed together insert a pair of angle brackets.
 ;; `h' and `j' pressed together invoke the undo command.

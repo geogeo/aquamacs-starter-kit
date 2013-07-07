@@ -1,4 +1,3 @@
-;;; init.el --- Where all the magic begins
 ;;
 ;; Part of the Emacs Starter Kit
 ;;
@@ -26,7 +25,7 @@
 ;; Load up ELPA, the package manager
 
 (add-to-list 'load-path dotfiles-dir)
-(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+;; (add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
 
 ;; Load miscellaneous vendors modes
 (setq vendor-files-dir (concat dotfiles-dir "/vendor"))
@@ -40,13 +39,11 @@
 
 (require 'package)
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("technomancy" . "http://repo.technomancy.us/emacs/")
+                  ("melpa" . "http://melpa.milkbox.net/packages/")
 		  ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
 (require 'starter-kit-elpa)
-
-(setenv "PYMACS_PYTHON" "python2.7")
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -85,7 +82,15 @@
 (require 'coffee-mode)
 (require 'copy-without-selection)
 (require 'web-mode)
+
 (require 'powerline)
+;; (require 'screencast-mode)
+(require 'js2-mode)
+(require 'keychord-settings)
+(require 'skewer-mode)
+(require 'skewer-setup)
+(require 'handlebars-mode)
+(key-chord-mode 1)
 
 (add-to-list 'magic-mode-alist '("\\(?:<\\?xml\\s +[^>]*>\\)?\\s *<\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *<\\)*\\(?:!DOCTYPE\\s +[^>]*>\\s *<\\s *\\(?:!--\\(?:[^-]\\|-[^-]\\)*-->\\s *\<\\)*\\)?[Hh][Tt][Mm][Ll]"
                                  . web-mode))

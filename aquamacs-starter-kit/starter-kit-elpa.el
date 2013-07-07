@@ -11,7 +11,6 @@
                                    'css-mode
                                    'yaml-mode
                                    'find-file-in-project
-                                   'color-theme-solarized
                                    'yasnippet
                                    'gist
                                    )

@@ -15,30 +15,31 @@
 ;; set the dotfiles-dir variable to this directory
 (setq kitfiles-dir (concat (file-name-directory
                             (or (buffer-file-name) load-file-name)) "/aquamacs-starter-kit"))
-
-;; set up our various directories to load
-(add-to-list 'load-path kitfiles-dir)
-(require 'smart-compile)
-
-                                        ; solve the org-called-interatively-p invalid error
-(defalias 'org-called-interactively-p 'called-interactively-p)
-
-;; (require 'init)
-(setq py-load-pymacs-p 'nil)
-;; (require 'markdown-mode)
-;; (setq kitfiles-dir (concat (file-name-directory (or (buffer-file-name) load-file-name)) "/aquamacs-emacs-starter-kit"))
-
-;; set up our various directories to load
-;; (add-to-list 'load-path kitfiles-dir)
-(require 'init)
-(require 'color-theme)
-
-(color-theme-molokai)
-
-(auto-fill-mode 0)
-
-;; Chinese Fonts
-(set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
+ 
+ ;; set up our various directories to load
+ (add-to-list 'load-path kitfiles-dir)
+ (require 'smart-compile)
+ 
+                                         ; solve the org-called-interatively-p invalid error
+ (defalias 'org-called-interactively-p 'called-interactively-p)
+ 
+ ;; (require 'init)
+ ;; (setq py-load-pymacs-p 'nil)
+ ;; (require 'markdown-mode)
+ ;; (setq kitfiles-dir (concat (file-name-directory (or
+;; (buffer-file-name) load-file-name)) "/ aquamacs-emacs-starter-kit"))
+ 
+ ;; set up our various directories to load
+ ;; (add-to-list 'load-path kitfiles-dir)
+ (require 'init)
+ ;; (require 'color-theme)
+ 
+ (color-theme-molokai)
+ 
+ (auto-fill-mode 0)
+ 
+ ;; Chinese Fonts
+ (set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
 (create-fontset-from-fontset-spec
  "-apple-bitstream vera sans mono-medium-r-normal--12-*-*-*-*-*-fontset-mymonaco,
 ascii:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1,

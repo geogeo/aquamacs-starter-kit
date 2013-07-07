@@ -2432,17 +2432,16 @@ It is recommended to encrypt the file with EasyPG.")
         "[]"
       "nil")))
 
-
 (defun enutil-buffer-string (buf)
   (save-excursion
     (set-buffer buf)
+
     (buffer-string)))
-
-
 (provide 'evernote-mode)
+;(setq debug-on-error t)
 
-;;(setq debug-on-error t)
+;;; Local Variables:
+; indent-tabs-mode: nil;
 
-;; Local Variables:
-;; indent-tabs-mode: nil
 ;; End:
+
