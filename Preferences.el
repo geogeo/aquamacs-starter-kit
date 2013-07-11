@@ -39,16 +39,16 @@
  (auto-fill-mode 0)
  
  ;; Chinese Fonts
- (set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
-(create-fontset-from-fontset-spec
- "-apple-bitstream vera sans mono-medium-r-normal--12-*-*-*-*-*-fontset-mymonaco,
-ascii:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1,
-chinese-gb2312:-apple-STHeiti-medium-normal-normal-12-*-*-*-*-p-0-iso10646-1,
-latin-iso8859-1:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1,
-mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+;;  (set-language-environment "Chinese-GB")(prefer-coding-system 'utf-8)
+;; (create-fontset-from-fontset-spec
+;;  "-apple-bitstream vera sans mono-medium-r-normal--12-*-*-*-*-*-fontset-mymonaco,
+;; ascii:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1,
+;; chinese-gb2312:-apple-STHeiti-medium-normal-normal-12-*-*-*-*-p-0-iso10646-1,
+;; latin-iso8859-1:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1,
+;; mule-unicode-0100-24ff:-apple-Monaco-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
-(setq default-frame-alist (append '((font . "fontset-mymonaco")) default-frame-alist))
-(set-default-font "fontset-mymonaco")
+;; (setq default-frame-alist (append '((font . "fontset-mymonaco")) default-frame-alist))
+;; (set-default-font "fontset-mymonaco")
 ;; Chinese Fonts End
 (defun browse-url-firefox-on-mac (url &rest ignored)
   (do-applescript
